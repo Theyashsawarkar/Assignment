@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <div>
       <LoginSocialFacebook
-        appId='1194128941822890'
+        appId='386330171154594'
         onReject={response => {
           console.log(response)
         }}
