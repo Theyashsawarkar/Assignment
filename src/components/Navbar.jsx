@@ -6,12 +6,12 @@ function Navbar() {
   return (
     <div>
       <LoginSocialFacebook
-        appId='386330171154594'
+        appId='1700409334040630'
         onReject={response => {
-          console.log(response)
+          console.log("business response ", response)
         }}
         onResolve={error => {
-          console.log(error)
+          console.log("business error ", error)
         }}
       >
         <FacebookLoginButton />

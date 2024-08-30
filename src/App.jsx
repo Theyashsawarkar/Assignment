@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LoginSocialFacebook } from "reactjs-social-login";
 import { FacebookLoginButton } from "react-social-login-buttons";
+import Navbar from "./components/Navbar"
 
 function App() {
   const [profile, setProfile] = useState(null);
@@ -32,6 +33,8 @@ function App() {
       ) : (
         ""
       )}
+
+      <Navbar />
     </div>
   );
 }
