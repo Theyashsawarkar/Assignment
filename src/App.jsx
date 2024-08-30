@@ -1,17 +1,39 @@
-import './App.css'
-import Navbar from './components/Navbar'
-import PageDetails from './components/PageDetails'
-import UserDetails from './components/UserDetails'
+import { useState } from "react";
+import { LoginSocialFacebook } from "reactjs-social-login";
+import { FacebookLoginButton } from "react-social-login-buttons";
 
 function App() {
+  const [profile, setProfile] = useState(null);
 
   return (
-    <div className=' min-w-[50vw] min-h-[80vh] rounded-[5rem] mx-auto mt-[3rem] py-0 px-0 bg-gray-800'>
-      <Navbar />
-      <UserDetails />
-      <PageDetails />
+    <div>
+      {!profile ? (
+        <LoginSocialFacebook
+          appId="1700409334040630"
+          onResolve={(response) => {
+            console.log(response);
+            setProfile(response.data);
+          }}
+          onReject={(error) => {
+            console.log(error);
+          }}
+        >
+          <FacebookLoginButton />
+        </LoginSocialFacebook>
+      ) : (
+        ""
+      )}
+
+      {profile ? (
+        <div>
+          <h1>{profile.name}</h1>
+          <img src={profile.picture.data.url} />
+        </div>
+      ) : (
+        ""
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
