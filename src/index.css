@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  margin: 0; /* Removes all default margin */
+  padding: 0; /* Removes all default padding */
+  box-sizing: border-box; /* Ensures padding and border are included within the element's total width and height */
+}
