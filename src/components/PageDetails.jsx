@@ -82,13 +82,21 @@ function PageDetails({ accessToken }) {
 
   // Fetch pages when the component mounts
   useEffect(() => {
-    fetchPages();
   }, []);
 
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
       {/* Left side: Form */}
       <div style={{ width: '45%' }}>
+        <button
+          className='px-2 py-1 border-black bg-blue-500 rounded-lg'
+          onClick={
+            fetchPages
+          }
+          type="button"
+        >
+          fetch pages
+        </button>
         <form onSubmit={handleSubmit}>
           <label htmlFor="pageSelect">Select a Page:</label>
           <select
