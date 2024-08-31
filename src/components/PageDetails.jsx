@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 
 function PageDetails({ accessToken }) {
-
-  console.log("accessToken in PageDetails : ", accessToken)
-
   const [pages, setPages] = useState([]);
   const [selectedPageId, setSelectedPageId] = useState('');
   const [pageInfo, setPageInfo] = useState({
@@ -20,8 +17,14 @@ function PageDetails({ accessToken }) {
     try {
       const response = await fetch(`https://graph.facebook.com/v14.0/me/accounts?access_token=${accessToken}`);
       const data = await response.json();
+
       if (data && data.data) {
-        setPages(data.data);
+        // Extract only the name and id
+        const pageList = data.data.map(page => ({
+          id: page.id,
+          name: page.name,
+        }));
+        setPages(pageList);
       }
     } catch (error) {
       console.error('Error fetching pages:', error);
@@ -31,7 +34,6 @@ function PageDetails({ accessToken }) {
   // Function to fetch page details from the Facebook Graph API
   const fetchPageDetails = async () => {
     try {
-      // Build the API URL with conditional parameters
       let apiUrl = `https://graph.facebook.com/v14.0/${selectedPageId}/insights?metric=page_fans,page_engagement,page_impressions,page_actions_post_reactions_total&period=total_over_range&access_token=${accessToken}`;
 
       if (sinceDate) {
@@ -75,7 +77,7 @@ function PageDetails({ accessToken }) {
   // Fetch pages when the component mounts
   useEffect(() => {
     fetchPages();
-  }, [accessToken, fetchPages]);
+  }, []);
 
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
