@@ -17,11 +17,13 @@ function PageDetails({ accessToken }) {
   // Function to fetch the list of pages
   const fetchPages = async () => {
     try {
-      const response = await fetch(`https://graph.facebook.com/v14.0/me/accounts?access_token=${accessToken}`);
+      const url = `https://graph.facebook.com/v14.0/me/accounts?access_token=${accessToken}`;
+      const response = await fetch(url);
       const data = await response.json();
 
       console.log("data : ", data)
       console.log("response : ", response)
+      console.log("url : ", url)
 
       if (data && data.data) {
         // Extract only the name and id
@@ -89,7 +91,7 @@ function PageDetails({ accessToken }) {
       {/* Left side: Form */}
       <div style={{ width: '45%' }}>
         <button
-          className='mb-8 px-2 py-1 border-black bg-blue-500 rounded-lg'
+          className='mb-8 px-2 py-1 border-black bg-blue-500 ml-3 rounded-lg'
           onClick={
             fetchPages
           }
@@ -160,7 +162,7 @@ function PageDetails({ accessToken }) {
           <span> {pageInfo.reactions}</span>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
