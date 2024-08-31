@@ -2,9 +2,11 @@ import { useState } from "react";
 import { LoginSocialFacebook } from "reactjs-social-login";
 import { FacebookLoginButton } from "react-social-login-buttons";
 import Navbar from "./components/Navbar"
+import PageDetails from "./components/PageDetails";
 
 function App() {
   const [profile, setProfile] = useState(null);
+  const [token, setToken] = useState({});
 
   return (
     <div>
@@ -12,8 +14,8 @@ function App() {
         <LoginSocialFacebook
           appId="878454434176187"
           onResolve={(response) => {
-            console.log(response);
-            setProfile(response.data);
+            setProfile(response.data)
+            console.log("response for first button : ", response.data);
           }}
           onReject={(error) => {
             console.log(error);
@@ -34,7 +36,10 @@ function App() {
         ""
       )}
 
-      <Navbar />
+      <div>
+        <Navbar handleProfile={setProfile} handleToken={setToken} />
+        <PageDetails accessToken={token} />
+      </div>
     </div>
   );
 }
