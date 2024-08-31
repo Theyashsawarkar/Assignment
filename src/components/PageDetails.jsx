@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function PageDetails({ accessToken = 'EAAYKg2ZAUCDYBO1SObxN7IccBGdhZC1sBgVDBxubRwD9eLoFL1B5uewTQMaT6kD2uZAqHOVtfUoNzUKNfNjNlv7ZAsq1qgLAz7bctxvjxHjI6aHXsFZBQOonmL6EG6pZCfsjniFZAll2VUelrlLWuBa5CKRqzmQeAiGQUik3BDwn0Qgfss5ZAsv2YpjPfgPMxr4XStyZCZCaiKfUVZB8GZCxoRdPvwiWdiGUCZCQt' }) {
+function PageDetails({ accessToken }) {
 
   console.log("token : ", accessToken)
   const [pages, setPages] = useState([]);
