@@ -4,6 +4,9 @@ import { FacebookLoginButton } from "react-social-login-buttons";
 function Navbar({ handleToken, handleProfile }) {
   return (
     <div>
+      <span className="ml-3">
+        busine login :
+      </span>
       <LoginSocialFacebook
         appId="1700409334040630"
         onReject={error => {

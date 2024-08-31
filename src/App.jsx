@@ -13,7 +13,10 @@ function App() {
     <div>
 
       <div>
-        {!profile ? (
+        <span className="ml-3">
+          if business login dosn&apos;t work then use this one , it can only provide login authentication !!
+        </span>
+        {!profile && (
           <LoginSocialFacebook
             appId="878454434176187"
             onResolve={(response) => {
@@ -26,17 +29,6 @@ function App() {
           >
             <FacebookLoginButton />
           </LoginSocialFacebook>
-        ) : (
-          ""
-        )}
-
-        {profile ? (
-          <div>
-            <h1>{profile.name}</h1>
-            <img src={profile.picture.data.url} />
-          </div>
-        ) : (
-          ""
         )}
       </div>
 

@@ -89,7 +89,7 @@ function PageDetails({ accessToken }) {
       {/* Left side: Form */}
       <div style={{ width: '45%' }}>
         <button
-          className='px-2 py-1 border-black bg-blue-500 rounded-lg'
+          className='mb-8 px-2 py-1 border-black bg-blue-500 rounded-lg'
           onClick={
             fetchPages
           }
