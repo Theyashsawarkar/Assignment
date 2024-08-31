@@ -13,22 +13,24 @@ function App() {
     <div>
 
       <div>
-        <span className="ml-3">
-          if business login dosn&apos;t work then use this one , it can only provide login authentication !!
-        </span>
         {!profile && (
-          <LoginSocialFacebook
-            appId="878454434176187"
-            onResolve={(response) => {
-              console.log(response);
-              setProfile(response.data);
-            }}
-            onReject={(error) => {
-              console.log(error);
-            }}
-          >
-            <FacebookLoginButton />
-          </LoginSocialFacebook>
+          <div>
+            <span className="ml-3">
+              if business login dosn&apos;t work then use this one , it can only provide login authentication !!
+            </span>
+            <LoginSocialFacebook
+              appId="878454434176187"
+              onResolve={(response) => {
+                console.log(response);
+                setProfile(response.data);
+              }}
+              onReject={(error) => {
+                console.log(error);
+              }}
+            >
+              <FacebookLoginButton />
+            </LoginSocialFacebook>
+          </div>
         )}
       </div>
 
