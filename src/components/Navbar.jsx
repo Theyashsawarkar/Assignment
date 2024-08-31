@@ -13,6 +13,7 @@ function Navbar({ handleToken, handleProfile }) {
           handleProfile(response.data);
           handleToken(response.data.accessToken);
           console.log("Login success: ", response.data);
+          console.log("Login success Token: ", response.data.accessToken);
         }}
       >
         <FacebookLoginButton />
