@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function PageDetails({ accessToken }) {
+function PageDetails({ accessToken = 'EAAYKg2ZAUCDYBO1SObxN7IccBGdhZC1sBgVDBxubRwD9eLoFL1B5uewTQMaT6kD2uZAqHOVtfUoNzUKNfNjNlv7ZAsq1qgLAz7bctxvjxHjI6aHXsFZBQOonmL6EG6pZCfsjniFZAll2VUelrlLWuBa5CKRqzmQeAiGQUik3BDwn0Qgfss5ZAsv2YpjPfgPMxr4XStyZCZCaiKfUVZB8GZCxoRdPvwiWdiGUCZCQt' }) {
 
   console.log("token : ", accessToken)
   const [pages, setPages] = useState([]);
@@ -17,7 +17,7 @@ function PageDetails({ accessToken }) {
   // Function to fetch the list of pages
   const fetchPages = async () => {
     try {
-      const url = `https://graph.facebook.com/v14.0/me/accounts?access_token=${accessToken}`;
+      const url = `https://graph.facebook.com/v20.0/me/accounts?access_token=${accessToken}`;
       const response = await fetch(url);
       const data = await response.json();
 
