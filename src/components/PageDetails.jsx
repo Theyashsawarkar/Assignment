@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 
 function PageDetails({ accessToken }) {
+
+  console.log("token : ", accessToken)
   const [pages, setPages] = useState([]);
   const [selectedPageId, setSelectedPageId] = useState('');
   const [pageInfo, setPageInfo] = useState({
@@ -18,6 +20,9 @@ function PageDetails({ accessToken }) {
       const response = await fetch(`https://graph.facebook.com/v14.0/me/accounts?access_token=${accessToken}`);
       const data = await response.json();
 
+      console.log("data : ", data)
+      console.log("response : ", response)
+
       if (data && data.data) {
         // Extract only the name and id
         const pageList = data.data.map(page => ({
@@ -25,6 +30,7 @@ function PageDetails({ accessToken }) {
           name: page.name,
         }));
         setPages(pageList);
+        console.log("page List : ", pageList)
       }
     } catch (error) {
       console.error('Error fetching pages:', error);
